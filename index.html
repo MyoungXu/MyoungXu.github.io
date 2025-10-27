@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>徐敬涵的个人主页</title>
     <style>
         body {
@@ -17,27 +18,27 @@
             background-position: center;
             min-height: 100vh;
         }
-        
+
         .container {
             width: 100%;
-            max-width: 1300px; /* 增加最大宽度 */
+            max-width: 1300px;
             display: flex;
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             margin: 40px 0;
             align-items: stretch;
         }
-        
+
         /* 左侧信息栏 */
         .sidebar {
             width: 280px;
             background-color: #f8f9fa;
-            padding: 30px 30px;
+            padding: 30px;
             border-right: 1px solid #eaeaea;
             display: flex;
             flex-direction: column;
         }
-        
+
         .profile-photo {
             width: 150px;
             border-radius: 5px;
@@ -45,63 +46,73 @@
             display: block;
             border: 2px solid #e0e0e0;
         }
-        
+
         .basic-info {
             margin-bottom: 30px;
             text-align: center;
         }
-        
+
         .basic-info h2 {
             font-size: 1.3em;
             margin-bottom: 5px;
             color: #2c3e50;
         }
-        
+
         .basic-info p {
             margin: 5px 0;
             font-size: 0.9em;
             color: #666;
         }
-        
+
         .research-interests, .contact-info {
             margin-top: 30px;
             padding-left: 15px;
         }
-        
+
         .research-interests h3, .contact-info h3 {
             font-size: 1.1em;
             margin-bottom: 10px;
             color: #2c3e50;
             text-align: center;
         }
-        
+
         .research-interests p, .contact-info p {
             margin: 8px 0;
             font-size: 0.9em;
             color: #555;
             padding-left: 10px;
         }
-        
+
         .contact-info a {
             color: #3498db;
             text-decoration: none;
         }
-        
+
         .contact-info a:hover {
             text-decoration: underline;
         }
-        
+
         /* 右侧内容区 */
         .content {
             flex: 1;
             padding: 40px;
-            max-width: 900px; /* 增加最大宽度 */
+            max-width: 900px;
         }
-        
+
         section {
             margin-bottom: 40px;
+            background-color: rgba(255,255,255,0.98);
+            padding: 5px 25px 20px 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        
+
+        section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
         h1 {
             color: #2c3e50;
             border-bottom: 2px solid #3498db;
@@ -109,69 +120,129 @@
             margin-top: 0;
             margin-bottom: 30px;
         }
-        
+
         h2 {
             color: #2980b9;
             font-size: 1.4em;
             margin-bottom: 20px;
         }
-        
+
         .education-item {
             margin-bottom: 25px;
         }
-        
+
         .education-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 5px;
         }
-        
+
         .education-school {
             font-weight: bold;
             font-size: 1.1em;
-            width: 60%; /* 控制学校名称宽度 */
+            width: 60%;
         }
-        
+
         .education-major {
             color: #555;
             font-style: italic;
-            display: block; /* 专业名称换行显示 */
+            display: block;
             margin-top: 5px;
         }
-        
+
         .education-time {
             color: #666;
             font-size: 0.9em;
             text-align: right;
-            width: 40%; /* 控制时间信息宽度 */
+            width: 40%;
         }
-        
+
         .education-degree {
             color: #666;
             font-size: 0.9em;
-            display: block; /* 学位信息换行显示 */
+            display: block;
             margin-top: 5px;
         }
-        
+
         .publication-item, .award-item, .academic-report {
             padding-left: 15px;
             border-left: 3px solid #3498db;
             margin-bottom: 15px;
         }
-        
+
         .publication-item p, .award-item p, .academic-report p {
             margin: 8px 0;
         }
-        
+
         a {
             color: #3498db;
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: underline;
         }
+
+        .intro {
+            text-indent: 2em;
+            line-height: 1.8;
+        }
+
+        .report-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            justify-content: flex-start;
+        }
+
+        .report-gallery img {
+            width: calc(24% - 10px);
+            max-width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease;
+        }
+
+        .report-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 轮播样式 */
+        .carousel-wrapper {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .carousel-caption {
+            margin-top: 10px;
+            font-size: 1.5em;
+            color: #555;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -179,15 +250,12 @@
 <div class="container">
     <!-- 左侧信息栏 -->
     <div class="sidebar">
-        <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/%E4%B8%AA%E4%BA%BA%E7%85%A7%E7%89%87.jpg" 
-             alt="徐敬涵的个人照片" class="profile-photo">
-        
+        <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/%E4%B8%AA%E4%BA%BA%E7%85%A7%E7%89%87.jpg" alt="徐敬涵的个人照片" class="profile-photo">
         <div class="basic-info">
             <h2>徐敬涵</h2>
             <p>2002.05</p>
             <p>硕士研究生</p>
         </div>
-        
         <div class="research-interests">
             <h3>研究方向</h3>
             <p>• 事件相机</p>
@@ -195,12 +263,11 @@
             <p>• 多模态融合</p>
             <p>• 低光运动场景成像</p>
         </div>
-        
         <div class="contact-info">
             <h3>联系方式</h3>
             <p>联系电话：13813588889</p>
-            <p>工作邮箱：xujinghan@hust.edu.cn</a></p>
-            <p>QQ邮箱：1109336969@qq.com</a></p>
+            <p>工作邮箱：xujinghan@hust.edu.cn</p>
+            <p>QQ邮箱：1109336969@qq.com</p>
             <p>GitHub：<a href="https://github.com/jinghan-xu" target="_blank">https://github.com/jinghan-xu</a></p>
             <p>ORCID：<a href="https://orcid.org/0009-0008-9188-2155" target="_blank">0009-0008-9188-2155</a></p>
         </div>
@@ -209,8 +276,8 @@
     <!-- 右侧内容区 -->
     <div class="content">
         <h1>个人简介</h1>
-        <p>你好！欢迎来到我的主页！我是徐敬涵，目前正在华中科技大学的人工智能与自动化学院攻读硕士学位，从属于多谱信息智能处理技术全国重点实验室。</p>
-        
+        <p class="intro">你好！欢迎来到我的个人主页。我是徐敬涵，目前在华中科技大学人工智能与自动化学院攻读硕士学位，隶属于多谱信息智能处理技术全国重点实验室。我的研究方向包括事件相机、计算机视觉、多模态融合以及低光运动场景成像。欢迎大家交流与探讨！</p>
+
         <section>
             <h2>教育背景</h2>
             <div class="education-item">
@@ -225,7 +292,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="education-item">
                 <div class="education-header">
                     <div class="education-school">
@@ -239,59 +305,78 @@
                 </div>
             </div>
         </section>
-        
+
         <section>
             <h2>学术论文</h2>
             <div class="publication-item">
-                <p>1) Haoyue Liu, <strong>Jinghan Xu</strong>, Shihan Peng, Yi Chang, Hanyu Zhou, Yuxing Duan, Lin Zhu, Yonghong Tian, Luxin Yan. <em>NER-Net+: Seeing motion at nighttime with an event camera.</em> TPAMI, 2025. <a href="https://ieeexplore.ieee.org/abstract/document/10904298" target="_blank">[Link]</a></p>
-            </div>
-            
-            <div class="publication-item">
-                <p>2) Haoyue Liu, <strong>Jinghan Xu</strong>, Yi Chang, Hanyu Zhou, Zhao Haozhi, Lin Wang, Luxin Yan. <em>TimeTracker: Event-based Continuous Point Tracking for Video Frame Interpolation with Non-linear Motion.</em> CVPR, 2025. <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Liu_TimeTracker_Event-based_Continuous_Point_Tracking_for_Video_Frame_Interpolation_with_CVPR_2025_paper.pdf" target="_blank">[Link]</a></p>
-            </div>
-        </section>
-        
-        <section>
-            <h2>授权专利</h2>
-            <div class="publication-item">
-                <p>1) 昌毅, <strong>徐敬涵</strong>, 刘昊岳, 颜露新, 赵浩志, 段宇兴. <em>基于事件-图像融合的极低光照成像方法、系统及装置.</em> (发明专利, 学生排名第一)</p>
-            </div>
-            
-            <div class="publication-item">
-                <p>2) 颜露新, 刘昊岳, 昌毅, <strong>徐敬涵</strong>, 段宇兴, 周寒宇, 彭仕涵, 赵浩志. <em>一种事件相机的拖尾效应抑制方法、系统及存储介质.</em> (发明专利, 学生排名第二)</p>
-            </div>
-
-             <div class="publication-item">
-                <p>3) 颜露新, 石志伟, 昌毅, 董浩, 周寒宇, 张玉山, <strong>徐敬涵</strong>. <em>事件相机的运动目标检测方法、分割方法及电子设备.</em> </p>
-            </div>
-        </section>
-        
-        <section>
-            <h2>奖项荣誉</h2>
-            <div class="award-item">
-                <p>1) 2024-2025年，硕士一等奖学金</p>
-            </div>
-            
-            <div class="award-item">
-                <p>2) 2024年，揭榜挂帅专项赛"基于微波红外空间小目标探测技术研究"二等奖 (国家级学科竞赛二等奖)</p>
-            </div>
-            
-            <div class="award-item">
-                <p>3) 2024年，华中科技大学人工智能与自动化学院2024届本科生优秀毕设</p>
+                <p>1) Haoyue Liu, <strong>Jinghan Xu</strong>, Shihan Peng, Yi Chang, Hanyu Zhou, Yuxing Duan, Lin Zhu, Yonghong Tian, Luxin Yan. <em>NER-Net+: Seeing motion at nighttime with an event camera.</em> <strong>TPAMI, 2025.</strong> <a href="https://ieeexplore.ieee.org/abstract/document/10904298" target="_blank">[Link]</a></p>
             </div>
         </section>
 
         <section>
             <h2>学术报告</h2>
             <div class="academic-report">
-                <p>1) 2025年中国光学学会学术大会，中国吉林长春，<em>NER-Net+: Seeing motion at nighttime with an event camera.</em> TPAMI</p>
+                <p>
+                    1) <a href="http://meeting.cncos.org.cn/cosconf2025/" target="_blank">
+                        2025年中国光学学会学术大会
+                    </a>，中国吉林长春<br>
+                    <em>NER-Net+: Seeing motion at nighttime with an event camera.</em> TPAMI, 2025.
+                </p>
             </div>
-
+            <div class="report-gallery">
+                <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/academic-report-pics/pic1.jpg" alt="大会背景">
+                <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/academic-report-pics/pic2.jpg" alt="会议现场1">
+                <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/academic-report-pics/pic3.jpg" alt="会议现场2">
+                <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/academic-report-pics/pic4.jpg" alt="会议现场3">
+            </div>
         </section>
+
+        <section id="carousel-section">
+            <h2>合作经历</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="carousel-slide" data-caption="航天科技五院502所——北京航天城">
+                        <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/502.jpg" alt="502">
+                    </div>
+                    <div class="carousel-slide" data-caption="北京航天城月球模拟场">
+                        <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/moon.jpg" alt="月亮">
+                    </div>
+                    <div class="carousel-slide" data-caption="长春光学精密机械与物理研究所">
+                        <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/changguang.jpg" alt="长光">
+                    </div>
+                    <div class="carousel-slide" data-caption="太原卫星发射中心">
+                        <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/taiyuan.jpg" alt="太原">
+                    </div>
+                </div>
+            </div>
+            <p class="carousel-caption">航天科技五院502所——北京航天城</p>
+        </section>
+
     </div>
 </div>
 
+<!-- 轮播 JS -->
+<script>
+const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const caption = document.querySelector('.carousel-caption');
+let currentIndex = 0;
+const totalSlides = slides.length;
+const intervalTime = 3000;
+
+function updateCarousel() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    caption.textContent = slides[currentIndex].dataset.caption;
+}
+
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+}, intervalTime);
+
+updateCarousel();
+</script>
+
 </body>
-
 </html>
-
