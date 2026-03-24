@@ -149,6 +149,26 @@
             margin-bottom: 20px;
         }
 
+        .content section h2 {
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+
+        #education h2::after,
+        #publications h2::after,
+        #reports h2::after,
+        #patents h2::after,
+        #projects h2::after,
+        #awards h2::after,
+        #carousel-section h2::after {
+            content: "";
+            display: block;
+            width: 320px;
+            height: 0;
+            margin-top: 8px;
+            border-top: 1px solid #e7edf3;
+        }
+
         .education-item {
             margin-bottom: 25px;
         }
@@ -226,7 +246,9 @@
             flex-wrap: wrap;
             gap: 15px;
             margin-top: 15px;
-            justify-content: flex-start;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .report-gallery img {
@@ -362,6 +384,202 @@
         .paper-left-img {
             flex: 0 0 230px;
         }
+    
+        .floating-toc {
+            position: fixed;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1200;
+            width: 172px;
+            padding: 16px 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+            backdrop-filter: blur(4px);
+        }
+
+        .toc-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .toc-link {
+            display: block;
+            margin: 8px 0;
+            padding: 8px 10px;
+            border-radius: 8px;
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.3;
+            text-decoration: none;
+            transition: background-color .18s ease, color .18s ease;
+        }
+
+        .toc-link:hover {
+            background: #eef5ff;
+            color: #1d4f91;
+            text-decoration: none;
+        }
+
+        .toc-link.active {
+            background: #3498db;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1200px) {
+            .floating-toc {
+                right: 10px;
+                width: 148px;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .floating-toc {
+                display: none;
+            }
+        }
+    
+        .paper-entry {
+            display: grid;
+            grid-template-columns: 1fr 240px;
+            grid-template-areas:
+                "main thumb"
+                "extra extra";
+            column-gap: 22px;
+            row-gap: 8px;
+            margin-bottom: 0;
+            padding: 18px 2px 18px 6px;
+            border-bottom: 1px solid #e7edf3;
+            align-items: start;
+        }
+
+        .paper-entry:last-child {
+            border-bottom: 0;
+            padding-bottom: 4px;
+        }
+
+        .paper-main {
+            grid-area: main;
+            min-width: 0;
+        }
+
+        .paper-extra {
+            grid-area: extra;
+            min-width: 0;
+        }
+
+        .paper-thumb-wrap {
+            grid-area: thumb;
+            justify-self: end;
+            width: 240px;
+            margin-top: 0;
+        }
+
+        .paper-thumb {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #dde5ee;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .paper-thumb:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        .paper-body {
+            min-width: 0;
+        }
+
+        .paper-title {
+            margin: 0 0 6px;
+            font-size: 1.01em;
+            font-weight: 700;
+            color: #2c3e50;
+            line-height: 1.42;
+        }
+
+        .paper-meta {
+            margin: 0 0 9px;
+            color: #5f7284;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .paper-meta .venue {
+            display: inline-block;
+            margin-right: 6px;
+            color: #1f6fb2;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            font-size: 0.92em;
+        }
+
+        .venue-style-1 {
+            color: #1b6fb8;
+            font-weight: 700;
+            letter-spacing: 0.25px;
+            text-transform: uppercase;
+            font-size: 0.98em;
+            line-height: 1.2;
+        }
+
+
+        .paper-meta a {
+            margin-left: 4px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .paper-highlight {
+            margin: 2px 0 10px;
+            color: #2f4f67;
+            font-size: 0.98em;
+            line-height: 1.62;
+            padding: 0;
+        }
+
+        .paper-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .paper-tag {
+            font-size: 0.85em;
+            color: #2c3e50;
+            background: #e1f0fa;
+            border-radius: 20px;
+            padding: 4px 12px;
+        }
+
+        @media (max-width: 980px) {
+            .paper-entry {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "main"
+                    "thumb"
+                    "extra";
+                row-gap: 12px;
+                padding: 16px 0;
+            }
+            .paper-thumb-wrap {
+                justify-self: start;
+                width: 100%;
+                max-width: 340px;
+                margin-top: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -394,10 +612,21 @@
 
     <!-- 右侧内容区（图片已添加点击class） -->
     <div class="content">
-        <h1>个人简介</h1>
-        <p class="intro">你好！欢迎来到我的个人主页。我是徐敬涵，目前在华中科技大学人工智能与自动化学院攻读硕士学位，隶属于多谱信息智能处理技术全国重点实验室。我的研究方向包括事件相机、计算机视觉、多模态融合以及低光运动场景成像。欢迎大家交流与探讨！</p>
+        <nav class="floating-toc" aria-label="页面目录">
+            <div class="toc-title">目录</div>
+            <a class="toc-link" href="#about">个人简介</a>
+            <a class="toc-link" href="#education">教育背景</a>
+            <a class="toc-link" href="#publications">学术论文</a>
+            <a class="toc-link" href="#reports">学术报告</a>
+            <a class="toc-link" href="#patents">发明专利</a>
+            <a class="toc-link" href="#projects">项目经历</a>
+            <a class="toc-link" href="#awards">竞赛获奖</a>
+            <a class="toc-link" href="#carousel-section">合作经历</a>
+        </nav>
+        <h1 id="about">个人简介</h1>
+        <p class="intro">徐敬涵，华中科技大学人工智能与自动化学院硕士研究生，隶属于多谱信息智能处理技术全国重点实验室。主要研究方向为事件相机与计算机视觉，聚焦多模态融合与低光运动场景成像，在极端条件下的感知重建与关键时刻检测方面持续开展研究与工程实践。</p>
 
-        <section>
+        <section id="education">
             <h2>教育背景</h2>
             <div class="education-item">
                 <div class="education-header">
@@ -426,60 +655,78 @@
         </section>
 
         <!-- 学术论文模块：三张图片均已添加 clickable 类 (paper-figure) 用于大图预览 -->
-        <section>
+                <section id="publications">
             <h2>学术论文</h2>
 
-            <!-- 论文1：NEC-Diff -->
-            <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; padding: 15px; background-color: #f9f9f9; border-radius: 10px;">
-                <div class="paper-left-img">
-                    <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/nec.png" 
-                         alt="NEC-Diff 论文图解" 
-                         class="paper-figure" 
+            <div class="paper-entry">
+                <div class="paper-main">
+                    <p class="paper-title"><span class="venue-style-1">CVPR 2026.</span> NEC-Diff: Noise-robust event-RAW complementary diffusion for seeing motion in extreme darkness</p>
+                    <p class="paper-meta">Haoyue Liu†, <strong>Jinghan Xu†</strong>, Luxin Feng, Hanyu Zhou, Haozhi Zhao, Yi Chang*, Luxin Yan. <a href="https://arxiv.org/abs/2603.20005" target="_blank" rel="noopener noreferrer">[PDF]</a></p>
+                </div>
+                <div class="paper-thumb-wrap">
+                    <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/nec.png"
+                         alt="NEC-Diff 论文图解"
+                         class="paper-thumb paper-figure"
                          data-full="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/nec.png">
                 </div>
-                <!-- 右侧文字区 -->
-                <div style="flex: 1;">
-                    <div class="publication-item" style="border-left: none; padding-left: 0; margin-bottom: 0;">
-                        <p>1) Haoyue Liu<sup>†</sup>, <strong>Jinghan Xu<sup>†</sup></strong>, Luxin Feng, Hanyu Zhou, Haozhi Zhao, Yi Chang*, Luxin Yan. <em>NEC-Diff: Noise-robust event–RAW complementary diffusion for seeing motion in extreme darkness.</em> <strong>CVPR, 2026.</strong> <a href="https://arxiv.org/abs/2603.20005" target="_blank">[Link]</a></p>
+                <div class="paper-extra">
+                    <p class="paper-highlight">概括：提出事件-RAW互补扩散重建框架，结合跨模态噪声建模与自适应融合策略，在极暗动态场景中同时提升细节恢复能力、纹理保真度与抗噪稳健性；在低照运动目标区域可获得更清晰边缘与更稳定结构，还原效果在可辨识度和视觉自然度上都有明显提升。</p>
+                    <div class="paper-tags">
+                        <span class="paper-tag">极低光照成像</span>
+                        <span class="paper-tag">双模融合</span>
+                        <span class="paper-tag">RAW图增强</span>
+                        <span class="paper-tag">Diffusion</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 论文2：NER-Net+ -->
-            <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; padding: 15px; background-color: #f9f9f9; border-radius: 10px;">
-                <div class="paper-left-img">
-                    <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/ner.png" 
-                         alt="NER-Net+ 论文图解" 
-                         class="paper-figure"
+            <div class="paper-entry">
+                <div class="paper-main">
+                    <p class="paper-title"><span class="venue-style-1">TPAMI 2025.</span> NER-Net+: Seeing motion at nighttime with an event camera</p>
+                    <p class="paper-meta">Haoyue Liu, <strong>Jinghan Xu</strong>, Shihan Peng, Yi Chang*, Hanyu Zhou, Yuxing Duan, Lin Zhu, Yonghong Tian, Luxin Yan. <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10904298" target="_blank" rel="noopener noreferrer">[PDF]</a></p>
+                </div>
+                <div class="paper-thumb-wrap">
+                    <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/ner.png"
+                         alt="NER-Net+ 论文图解"
+                         class="paper-thumb paper-figure"
                          data-full="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/ner.png">
                 </div>
-                <!-- 右侧文字区 -->
-                <div style="flex: 1;">
-                    <div class="publication-item" style="border-left: none; padding-left: 0; margin-bottom: 0;">
-                        <p>2) Haoyue Liu, <strong>Jinghan Xu</strong>, Shihan Peng, Yi Chang*, Hanyu Zhou, Yuxing Duan, Lin Zhu, Yonghong Tian, Luxin Yan. <em>NER-Net+: Seeing motion at nighttime with an event camera.</em> <strong>TPAMI, 2025.</strong> <a href="https://ieeexplore.ieee.org/abstract/document/10904298" target="_blank">[Link]</a></p>
+                <div class="paper-extra">
+                    <p class="paper-highlight">概括：通过可学习时间校正与非平稳时空增强联合建模，系统缓解夜间事件成像中的噪声干扰、拖尾伪影与空间不均匀问题，在真实夜景动态场景下实现更稳定、更清晰且泛化能力更强的重建效果；尤其在弱纹理和快速运动区域，重建结果的细节连续性与亮度一致性更好。</p>
+                    <div class="paper-tags">
+                        <span class="paper-tag">低光成像</span>
+                        <span class="paper-tag">事件单模</span>
+                        <span class="paper-tag">拖尾效应</span>
+                        <span class="paper-tag">时空增强</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 论文3：TimeTracker -->
-            <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; padding: 15px; background-color: #f9f9f9; border-radius: 10px;">
-                <div class="paper-left-img">
-                    <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/timetracker.png" 
-                         alt="TimeTracker 论文图解" 
-                         class="paper-figure"
+            <div class="paper-entry">
+                <div class="paper-main">
+                    <p class="paper-title"><span class="venue-style-1">CVPR 2025.</span> TimeTracker: Event-based Continuous Point Tracking for Video Frame Interpolation with Non-linear Motion</p>
+                    <p class="paper-meta">Haoyue Liu, <strong>Jinghan Xu</strong>, Yi Chang*, Hanyu Zhou, Zhao Haozhi, Lin Wang, Luxin Yan. <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Liu_TimeTracker_Event-based_Continuous_Point_Tracking_for_Video_Frame_Interpolation_with_CVPR_2025_paper.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></p>
+                </div>
+                <div class="paper-thumb-wrap">
+                    <img src="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/timetracker.png"
+                         alt="TimeTracker 论文图解"
+                         class="paper-thumb paper-figure"
                          data-full="https://raw.githubusercontent.com/MyoungXu/MyoungXu.github.io/main/pics/timetracker.png">
                 </div>
-                <!-- 右侧文字区 -->
-                <div style="flex: 1;">
-                    <div class="publication-item" style="border-left: none; padding-left: 0; margin-bottom: 0;">
-                        <p>3) Haoyue Liu, <strong>Jinghan Xu</strong>, Yi Chang*, Hanyu Zhou, Zhao Haozhi, Lin Wang, Luxin Yan. <em>TimeTracker: Event-based Continuous Point Tracking for Video Frame Interpolation with Non-linear Motion.</em> <strong>CVPR, 2025.</strong> <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Liu_TimeTracker_Event-based_Continuous_Point_Tracking_for_Video_Frame_Interpolation_with_CVPR_2025_paper.pdf" target="_blank">[Link]</a></p>
+                <div class="paper-extra">
+                    <p class="paper-highlight">概括：通过连续点跟踪显式建模非线性运动轨迹，将事件信息与时序几何约束结合用于中间帧估计，在高速复杂运动与遮挡变化场景下有效降低伪影和错位，显著提升插帧结果的时序稳定性与视觉清晰度；对快速位移和局部形变场景也能保持更平滑的过渡与更准确的结构恢复。</p>
+                    <div class="paper-tags">
+                        <span class="paper-tag">视频插帧</span>
+                        <span class="paper-tag">双模融合</span>
+                        <span class="paper-tag">连续点跟踪</span>
+                        <span class="paper-tag">非线性运动</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 学术报告模块：4张图片，均已添加可点击类 -->
-<section>
+<section id="reports">
     <h2>学术报告</h2>
     
     <!-- 已完成报告 -->
@@ -501,7 +748,7 @@
     <!-- 拟参加报告1：CVPR 2026 Poster -->
     <div class="academic-report">
         <p>
-            3) <strong>拟参加</strong> <a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank">
+            2) <strong>拟参加</strong> <a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank">
                 CVPR 2026
             </a>，美国 科罗拉多州丹佛<br>
             <em>NEC-Diff: Noise-robust event–RAW complementary diffusion for seeing motion in extreme darkness.</em> <strong>CVPR, 2026.</strong></p>
@@ -510,7 +757,7 @@
     <!-- 拟参加报告2：VALSE 2026 Poster -->
     <div class="academic-report">
         <p>
-            2) <strong>拟参加</strong> <a href="https://valser.org/2026/#/" target="_blank">
+            3) <strong>拟参加</strong> <a href="https://valser.org/2026/#/" target="_blank">
                 VALSE 2026
             </a>，中国湖北 武汉国际会议中心<br>
             <em>NEC-Diff: Noise-robust event–RAW complementary diffusion for seeing motion in extreme darkness.</em> <strong>CVPR, 2026.</strong> </p>
@@ -523,10 +770,10 @@
 
 </section>
         
-<section>
+<section id="patents">
     <h2>发明专利</h2>
     <div class="publication-item">
-        <p>1) 昌毅, <strong>徐敬涵</strong>, 刘昊岳, 颜露新, 赵浩志, 段宇兴. <em>基于事件-图像融合的极低光照成像方法、系统及装置.</em> (学生排名第一) <em><strong>CN120894244B.</strong></em></p>
+        <p>1) 昌毅, <strong>徐敬涵</strong>, 刘昊岳, 颜露新, 赵浩志, 段宇兴. <em>基于事件-图像融合的极低光照成像方法、系统及装置.</em> <em><strong>CN120894244B.</strong></em></p>
     </div>
     <div class="publication-item">
         <p>2) 颜露新, 刘昊岳, 昌毅, <strong>徐敬涵</strong>, 段宇兴, 周寒宇, 彭仕涵, 赵浩志. <em>一种事件相机的拖尾效应抑制方法、系统及存储介质.</em> <em><strong>CN118138904B.</strong></em></p>
@@ -580,7 +827,7 @@
 </section>
 
 
-<section>
+<section id="projects">
     <h2>项目经历</h2>
     
     <!-- 项目1：基于事件相机的多目标追踪检测的可视化软件开发 -->
@@ -604,14 +851,51 @@
         </div>
     </div>
     
-    <!-- 可以在这里继续添加更多项目 -->
+    <!-- 项目2：火箭起飞段微秒级速度测量 -->
+    <div style="margin-bottom: 30px; padding: 5px 0;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+            <h3 style="color: #2c3e50; font-size: 1.2em; margin: 0; font-weight: 600;">基于事件相机的火箭起飞段微秒级速度测量方法</h3>
+            <span style="color: #666; font-size: 0.9em; background-color: #f0f0f0; padding: 3px 10px; border-radius: 15px;">2025.07 - 2025.10</span>
+        </div>
+        <div style="background-color: #f9f9f9; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <p style="margin: 0 0 12px 0; line-height: 1.7; color: #444; text-indent: 2em;">
+                面向火箭起飞段高动态场景，基于事件相机构建微秒级速度测量链路。利用事件相机高动态范围的特性，无视局部区域过曝影响，捕获火箭箭体环形特征，将高时间分辨率的事件信号叠加成事件帧，并利用霍夫变换提取直线特征从而定位箭体位置，建立位置-时间曲线后反演速度曲线，实现起飞段速度变化过程的高精度量化分析。
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                <span style="background-color: #e1f0fa; color: #2c3e50; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">事件相机</span>
+                <span style="background-color: #e1f0fa; color: #2c3e50; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">火箭起飞段测速</span>
+                <span style="background-color: #e1f0fa; color: #2c3e50; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">霍夫变换</span>
+                <span style="background-color: #e1f0fa; color: #2c3e50; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">高动态范围</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 项目3：火箭起飞段关键时刻检测 -->
+    <div style="margin-bottom: 30px; padding: 5px 0;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+            <h3 style="color: #2c3e50; font-size: 1.2em; margin: 0; font-weight: 600;">基于事件的火箭起飞段 T0 与燃爆瞬间时刻检测</h3>
+            <span style="color: #666; font-size: 0.9em; background-color: #f0f0f0; padding: 3px 10px; border-radius: 15px;">2026.01 - 2026.06</span>
+        </div>
+        <div style="background-color: #f9f9f9; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <p style="margin: 0; line-height: 1.7; color: #444; text-indent: 2em;">
+                围绕火箭起飞段关键时刻检测任务，利用事件相机微秒级时间戳与对相对光强变化的高灵敏捕获能力，结合北斗授时器完成跨设备时间同步标定，实现 T0时刻（点火后二力平衡离架瞬间）精准识别；在同一技术框架下进一步设计燃爆瞬间检测算法，先通过密集ON事件定位燃爆区域，再进行时间反演以确定燃爆瞬间，形成微秒级的起飞段关键时刻检测流程。
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                <span style="background-color: #e1f0fa; color: #2c3e50; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">事件相机</span>
+                <span style="background-color: #e1f0fa; color: #2c3e50; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">北斗授时同步</span>
+                <span style="background-color: #e1f0fa; color: #2c3e50; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">微秒级测量</span>
+                <span style="background-color: #e1f0fa; color: #2c3e50; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">T0时刻检测</span>
+                <span style="background-color: #e1f0fa; color: #2c3e50; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">燃爆时刻检测</span>
+            </div>
+        </div>
+    </div>
     
 </section>
 
 
 
         <!-- 比赛经历模块：图片已添加可点击类 -->
-<section>
+<section id="awards">
     <h2>竞赛获奖</h2>
     <div style="display: flex; align-items: flex-start; gap: 20px;">
         <div style="flex: 3;">
@@ -745,6 +1029,41 @@
             closeLightbox();
         }
     });
+
+    const tocLinks = Array.from(document.querySelectorAll('.toc-link'));
+    const tocTargets = tocLinks
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+    function updateTocActive() {
+        const anchor = window.scrollY + 160;
+        let currentId = '';
+
+        tocTargets.forEach(sec => {
+            if (sec.offsetTop <= anchor) {
+                currentId = '#' + sec.id;
+            }
+        });
+
+        tocLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === currentId);
+        });
+    }
+
+    tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            window.scrollTo({
+                top: target.offsetTop - 24,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    window.addEventListener('scroll', updateTocActive, { passive: true });
+    updateTocActive();
 })();
 </script>
 </body>
